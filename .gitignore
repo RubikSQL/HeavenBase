@@ -1,0 +1,95 @@
+# Basic ignores
+.DS_Store
+Thumbs.db
+*.pyc
+*.pyd
+*.pyo
+tempCodeRunnerFile.py
+__pycache__/
+*.egg-info/
+.eggs/
+.venv/
+node_modules/
+.worktrees/
+worktrees/
+.idea/
+.vscode/
+*.code-workspace
+.pytest_cache/
+pytest_cache/
+.cache/
+.ruff_cache/
+.mypy_cache/
+/.temp/
+/.tmp/
+env/
+venv/
+site/
+dist/
+build/
+.pypirc
+.coverage
+coverage/
+htmlcov/
+
+# Common generated artifacts
+*.test
+*.cache
+*.log
+*.temp
+*.lock
+!uv.lock
+!poetry.lock
+!apps/gui/bun.lock
+*.zip
+*.tar
+*.gz
+*.tar.gz
+*.rar
+*.pkl
+*.egg
+*.whl
+
+# Conventional folders and files
+__assets__/
+__temp__/
+temp/
+tmp/
+_legacy/
+secret/
+/scratch/
+temp.py
+temp.bash
+session.json
+log.json
+log.txt
+
+# Agent and editor runtime files
+QWEN.md
+GEMINI.md
+CLAUDE.local.md
+.claude/
+.windsurf/
+.opencode/
+.prompts/
+.agents/
+
+# Legacy / HeavenBase runtime
+.hvnb/
+.chromadb/
+
+# Local entity-mcp scratch + workflow data (this repo's entity-mcp server; kept locally, never committed)
+/models.py
+/mcp_stdio.py
+/entity.db
+# Stray / foreign / runtime databases that land in the repo root from examples or sibling-project tools
+/rubiksql_hb.db
+/shop_db.sqlite
+# SQLite WAL sidecars are transient runtime files.
+*.db-shm
+*.db-wal
+# Test runtime home
+/.test-home/
+
+# Disposable documentation notes; tracked scratch policy lives in docs/scratch/.
+/.temp/notes/

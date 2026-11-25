@@ -1,0 +1,31 @@
+# Source of truth for full optional dependencies. Edit here, then run bash scripts/sync-env.bash.
+sqlalchemy>=2.0
+numpy>=1.24
+pillow>=10.0
+pymongo>=4.0
+litellm>=1.0
+psycopg2-binary>=2.9
+pymysql>=1.1
+pymssql>=2.3
+oracledb>=2.0
+trino[sqlalchemy]>=0.330
+clickhouse-connect>=1.0,<2
+pgvector>=0.3
+lancedb>=0.22.1
+pylance>=0.34
+elasticsearch>=8.0
+opensearch-py>=3.0
+# 1.5.0 is the first chromadb whose metadata holds lists, which the Chroma backend relies on.
+chromadb>=1.5.0
+# ONNX Runtime 1.24+ dropped CPython 3.10 wheels while Chroma still permits it.
+onnxruntime<1.24; python_version < "3.11"
+pymilvus[milvus-lite]>=2.5
+pinecone>=5.0
+qdrant-client>=1.12
+weaviate-client>=4.9
+duckdb-engine>=0.13
+neo4j>=5.0
+redis>=5.0
+surrealdb>=2.0
+tinydb>=4.8
+sqlglot>=25.0

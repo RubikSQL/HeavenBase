@@ -1,0 +1,6 @@
+# Source of truth for interop optional dependencies. Edit here, then run bash scripts/sync-env.bash.
+pydantic>=1.10
+pandas>=2.0
+pyarrow>=12.0
+numpy>=1.24
+sqlalchemy>=2.0

@@ -1,0 +1,80 @@
+manifest_version: 2
+coordinate: example/external-parity
+version: 1.0.0
+compatibility:
+  heavenbase:
+    min: 0.1.2.1
+    before: 0.1.3.0
+bundle: external-parity
+items:
+  - kind: entity
+    identifier: external-parity-note
+    name: ExternalParityNote
+    desc: Out-of-tree parity note.
+    source: path
+    target: {module: entities, qualname: ExternalParityNote}
+    active: true
+    meta: {schema_version: 1}
+  - kind: extension
+    identifier: external-parity
+    groups: {tag: [external, test]}
+    name: External Parity
+    desc: Out-of-tree lifecycle parity Extension.
+    source: inline
+    target: definition
+    active: true
+    meta:
+      schema_version: 1
+      dependencies: [entity:external-parity-note]
+      definition:
+        identifier: external-parity
+        name: External Parity
+        version: 1.0.0
+        desc: Out-of-tree lifecycle parity Extension.
+        required: false
+        requires: [agent, toolkit]
+        tags: {external: true, test: true}
+        entities: [external-parity-note]
+        meta: {}
+        setup: null
+        api: {kind: heavenbase.executable, version: 1, source: path, target: {module: api, qualname: ExternalParityAPI}}
+        api_name: external_parity
+  - kind: toolkit_family
+    identifier: external-parity
+    name: External Parity
+    desc: Read tools for the external parity fixture.
+    source: inline
+    target: definition
+    active: true
+    meta:
+      schema_version: 1
+      tags: {external: true, mcp: true, test: true}
+      dependencies: [extension:external-parity]
+      workspace_requires: [external-parity, toolkit]
+      definition:
+        tool_names: [external_list_notes]
+        builder: {kind: heavenbase.executable, version: 1, source: path, target: {module: toolkit, qualname: external_tool_functions}}
+        meta:
+          builder_context: workspace_tool_context
+          tool_descriptions:
+            external_list_notes: Return notes owned by the external parity Extension.
+  - kind: mcp_profile
+    identifier: external-parity
+    name: External Parity
+    desc: External note and Skill read surface.
+    source: inline
+    target: definition
+    active: true
+    meta:
+      schema_version: 1
+      tags: {external: true, mcp: true, test: true}
+      dependencies: [serializer:jstr, toolkit_family:external-parity, toolkit_family:agent, entity:external-parity-note]
+      workspace_requires: [external-parity, agent, toolkit]
+      definition:
+        extends: []
+        tools: [external_list_notes, read_skill]
+        entities: [external-parity-note]
+        skills: [external-parity]
+        serializer: jstr
+        desc: External note and Skill read surface.
+        meta: {}

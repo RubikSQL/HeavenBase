@@ -1,0 +1,1500 @@
+{
+  "backend_summary": [
+    {
+      "name": "main",
+      "type": "inmem"
+    }
+  ],
+  "construction": {
+    "config": {
+      "main": {
+        "type": "inmem"
+      }
+    },
+    "kind": "backends"
+  },
+  "entities": [
+    {
+      "derives": [
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.agent.Agent.<lambda>",
+              "inputs": [
+                "description"
+              ]
+            }
+          ],
+          "target": "catalog.desc"
+        },
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.agent.Agent.<lambda>",
+              "inputs": []
+            }
+          ],
+          "target": "catalog.type"
+        }
+      ],
+      "desc": "Composable Agent recipe assembled from existing HeavenBase runtimes.",
+      "entity_id": "agent-agent",
+      "fields": {
+        "args": {
+          "default": {
+            "max_steps": 20
+          },
+          "desc": "Agent runtime arguments",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "description": {
+          "default": "",
+          "desc": "Agent description",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "llm_args": {
+          "default": {},
+          "desc": "LLM runtime args",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "llm_preset": {
+          "default": "chat",
+          "desc": "LLM preset",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "manifest": {
+          "default": {},
+          "desc": "Agent manifest",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "name": {
+          "desc": "Agent name",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "object_id": {
+          "desc": "Built-in stable object_id",
+          "examples": [],
+          "pk": true,
+          "required": true,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "prompt_args": {
+          "default": {},
+          "desc": "Prompt render arguments",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "prompt_ref": {
+          "default": "",
+          "desc": "Prompt row ref or literal system prompt",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "skill_refs": {
+          "default": [],
+          "desc": "Skill refs loaded from the workspace",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "status": {
+          "default": "active",
+          "desc": "Agent status",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "tags": {
+          "default": [],
+          "desc": "Agent tags",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "toolkit_refs": {
+          "default": [],
+          "desc": "Registered Toolkit refs",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "version": {
+          "default": "1",
+          "desc": "Agent version",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        }
+      },
+      "name": "Agent",
+      "tags": []
+    },
+    {
+      "derives": [
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.message.Message.<lambda>",
+              "inputs": [
+                "content_text"
+              ]
+            }
+          ],
+          "target": "catalog.desc"
+        },
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.message.Message.<lambda>",
+              "inputs": [
+                "tool_call_count"
+              ]
+            }
+          ],
+          "target": "catalog.statistics"
+        },
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.message.Message.<lambda>",
+              "inputs": []
+            }
+          ],
+          "target": "catalog.type"
+        }
+      ],
+      "desc": "OpenAI-format message payload with small query projections.",
+      "entity_id": "agent-message",
+      "fields": {
+        "content_text": {
+          "default": "",
+          "desc": "Text projection of message content",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "idx": {
+          "default": 0,
+          "desc": "Ordered message index in the session",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "integer"
+          }
+        },
+        "object_id": {
+          "desc": "Built-in stable object_id",
+          "examples": [],
+          "pk": true,
+          "required": true,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "payload": {
+          "default": {},
+          "desc": "Full OpenAI-format message payload",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "role": {
+          "default": "user",
+          "desc": "OpenAI message role",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "session_id": {
+          "default": "",
+          "desc": "Owning agent-session id",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "tool_call_count": {
+          "default": 0,
+          "desc": "Number of tool calls in payload",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "integer"
+          }
+        }
+      },
+      "name": "Message",
+      "tags": []
+    },
+    {
+      "derives": [
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.session.Session.<lambda>",
+              "inputs": [
+                "summary"
+              ]
+            }
+          ],
+          "target": "catalog.desc"
+        },
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.session.Session.<lambda>",
+              "inputs": [
+                "title"
+              ]
+            }
+          ],
+          "target": "catalog.name"
+        },
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.session.Session.<lambda>",
+              "inputs": [
+                "turn_count",
+                "tool_call_count",
+                "usage"
+              ]
+            }
+          ],
+          "target": "catalog.statistics"
+        },
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.session.Session.<lambda>",
+              "inputs": []
+            }
+          ],
+          "target": "catalog.type"
+        }
+      ],
+      "desc": "Durable conversation state backed by ordered ``Message`` rows.",
+      "entity_id": "agent-session",
+      "fields": {
+        "agent_ref": {
+          "default": "",
+          "desc": "Owning or source agent reference",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "message_ids": {
+          "default": [],
+          "desc": "Ordered agent-message ids",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "object_id": {
+          "desc": "Built-in stable object_id",
+          "examples": [],
+          "pk": true,
+          "required": true,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "state": {
+          "default": {},
+          "desc": "Runtime and source metadata",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "status": {
+          "default": "active",
+          "desc": "Session status",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "summary": {
+          "default": "",
+          "desc": "Short session summary",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "title": {
+          "default": "",
+          "desc": "Session title",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "tool_call_count": {
+          "default": 0,
+          "desc": "Number of assistant tool calls",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "integer"
+          }
+        },
+        "turn_count": {
+          "default": 0,
+          "desc": "Number of user turns",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "integer"
+          }
+        },
+        "usage": {
+          "default": {},
+          "desc": "Aggregated LLM usage",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        }
+      },
+      "name": "Session",
+      "tags": []
+    },
+    {
+      "derives": [
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.skill.Skill.<lambda>",
+              "inputs": [
+                "description"
+              ]
+            }
+          ],
+          "target": "catalog.desc"
+        },
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.skill.Skill.<lambda>",
+              "inputs": [
+                "skill_body"
+              ]
+            }
+          ],
+          "target": "catalog.summary"
+        },
+        {
+          "computes": [
+            {
+              "fn": "_heavenbase_artifact_22e237e83dcdae7dbea9bec6b611c89416c3c747b893db764eb60e5cb33d5b19.skill.Skill.<lambda>",
+              "inputs": []
+            }
+          ],
+          "target": "catalog.type"
+        }
+      ],
+      "desc": "Workspace-persisted Skill folder with archive-backed files.",
+      "entity_id": "agent-skill",
+      "fields": {
+        "archive": {
+          "desc": "Deterministic zipped skill folder",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "artifact"
+          }
+        },
+        "description": {
+          "default": "",
+          "desc": "Skill description",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "file_index": {
+          "default": {},
+          "desc": "Archived file metadata",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "fingerprints": {
+          "default": {},
+          "desc": "Archive and frontmatter fingerprints",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "frontmatter": {
+          "default": {},
+          "desc": "Parsed SKILL.md frontmatter",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "name": {
+          "desc": "Skill name",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "object_id": {
+          "desc": "Built-in stable object_id",
+          "examples": [],
+          "pk": true,
+          "required": true,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "skill_body": {
+          "default": "",
+          "desc": "SKILL.md body",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "status": {
+          "default": "active",
+          "desc": "Skill status",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "tags": {
+          "default": [],
+          "desc": "Skill tags",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "toolkit_refs": {
+          "default": [],
+          "desc": "Toolkit refs declared by this skill",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "version": {
+          "default": "1",
+          "desc": "Skill version",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        }
+      },
+      "name": "Skill",
+      "tags": []
+    },
+    {
+      "desc": "Small agent memory note used by the memory MCP profile.",
+      "entity_id": "memory-note",
+      "fields": {
+        "created_at": {
+          "desc": "Creation time as UTC epoch seconds",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "timestamp",
+            "unit": "ms"
+          }
+        },
+        "deleted": {
+          "default": false,
+          "desc": "Soft-delete tombstone flag",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "boolean"
+          }
+        },
+        "keypath": {
+          "default": "",
+          "desc": "Hierarchical project keypath",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "metadata": {
+          "default": {},
+          "desc": "Optional structured metadata",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "object_id": {
+          "desc": "Built-in stable object_id",
+          "examples": [],
+          "pk": true,
+          "required": true,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "previous_id": {
+          "default": "",
+          "desc": "Previous version object id",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "project_id": {
+          "default": "default",
+          "desc": "Memstate-style project id",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "source": {
+          "default": "agent",
+          "desc": "Producer or agent that wrote the memory",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "tags": {
+          "default": [],
+          "desc": "Optional memory tags",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "item_type": {
+              "max_chars": 255,
+              "type": "short-text"
+            },
+            "type": "array"
+          }
+        },
+        "text": {
+          "desc": "Memory body",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "title": {
+          "default": "",
+          "desc": "Optional short title",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "updated_at": {
+          "desc": "Last update time as UTC epoch seconds",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "timestamp",
+            "unit": "ms"
+          }
+        },
+        "version": {
+          "default": 1,
+          "desc": "Monotonic version for this keypath",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "integer"
+          }
+        }
+      },
+      "name": "MemoryNote",
+      "tags": []
+    },
+    {
+      "desc": "Executable Capsule with lazy callable restoration. A Capsule stores enough source, import, signature, and manifest metadata to restore a Python callable later. It is the execution unit behind Prompt and Toolkit persistence. It is also the system entity registered as ``sys-capsule``; registry storage uses :meth:`to_row` so the public :meth:`to_dict` manifest contract remains stable. Warnings: Loading or running a Capsule can execute restored Python code. Only load Capsules from trusted registries or manifests that have been reviewed for the current runtime.",
+      "entity_id": "sys-capsule",
+      "fields": {
+        "capabilities": {
+          "default": {},
+          "desc": "Export capability matrix",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "created_at": {
+          "default": 0.0,
+          "desc": "Creation timestamp",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "float"
+          }
+        },
+        "description": {
+          "default": "",
+          "desc": "Human-readable description",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "fingerprints": {
+          "default": {},
+          "desc": "Integrity fingerprints",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "last_reason": {
+          "default": "",
+          "desc": "Last registry write reason",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "manifest": {
+          "default": {},
+          "desc": "Full Capsule manifest",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "name": {
+          "desc": "Public capsule name",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "namespace": {
+          "default": "default",
+          "desc": "Capsule namespace",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "object_id": {
+          "desc": "Built-in stable object_id",
+          "examples": [],
+          "pk": true,
+          "required": true,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "status": {
+          "default": "active",
+          "desc": "Capsule status",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "tags": {
+          "default": [],
+          "desc": "Search tags",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "updated_at": {
+          "default": 0.0,
+          "desc": "Last update timestamp",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "float"
+          }
+        },
+        "version": {
+          "default": "1",
+          "desc": "Explicit user version",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        }
+      },
+      "name": "Capsule",
+      "tags": []
+    },
+    {
+      "desc": "Callable prompt object and ``sys-prompt`` entity. ``Prompt`` wraps a Python callable or format-string template, exposes it as a normal callable object, and can persist the callable metadata as a HeavenBase entity row. Persisted prompts restore through Capsule manifests so function prompts and string templates use the same runtime path. Warnings: Persisted prompts contain executable Capsule source. Only load prompt rows from trusted workspaces. Examples: >>> prompt = Prompt(\"Hello, {name}\", name=\"demo.hello\") >>> prompt(name=\"Ada\") 'Hello, Ada'",
+      "entity_id": "sys-prompt",
+      "fields": {
+        "capsule": {
+          "default": {},
+          "desc": "Capsule manifest",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "created_at": {
+          "default": 0.0,
+          "desc": "Creation timestamp",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "float"
+          }
+        },
+        "description": {
+          "default": "",
+          "desc": "Prompt description",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "dicts": {
+          "default": [],
+          "desc": "Ordered translation dict names",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "fingerprints": {
+          "default": {},
+          "desc": "Integrity fingerprints",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "main_lang": {
+          "default": "en",
+          "desc": "Fallback language",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "manifest": {
+          "default": {},
+          "desc": "Prompt manifest",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "name": {
+          "desc": "Dotted prompt name",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "object_id": {
+          "desc": "Built-in stable object_id",
+          "examples": [],
+          "pk": true,
+          "required": true,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "status": {
+          "default": "active",
+          "desc": "Prompt status",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "tags": {
+          "default": [],
+          "desc": "Prompt tags",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "updated_at": {
+          "default": 0.0,
+          "desc": "Last update timestamp",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "float"
+          }
+        },
+        "version": {
+          "default": "1",
+          "desc": "Explicit prompt version",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        }
+      },
+      "name": "Prompt",
+      "tags": []
+    },
+    {
+      "desc": "Ordered collection of Capsule-backed tools. Toolkits provide local execution, registry persistence, and MCP/agent schema exports for a named set of tools. The class is also the system entity registered as ``sys-toolkit``; registry storage uses :meth:`to_row` so runtime methods and manifest serialization stay user-facing. Warnings: Toolkit loading restores each referenced Capsule. Treat persisted Toolkits as executable-code bundles, not as inert metadata.",
+      "entity_id": "sys-toolkit",
+      "fields": {
+        "capabilities": {
+          "default": {},
+          "desc": "Toolkit capability summary",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "capsule_refs": {
+          "default": [],
+          "desc": "Ordered Capsule references",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "created_at": {
+          "default": 0.0,
+          "desc": "Creation timestamp",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "float"
+          }
+        },
+        "description": {
+          "default": "",
+          "desc": "Toolkit description",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "last_reason": {
+          "default": "",
+          "desc": "Last registry write reason",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "manifest": {
+          "default": {},
+          "desc": "Full toolkit manifest",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "name": {
+          "desc": "Toolkit name",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "namespace": {
+          "default": "default",
+          "desc": "Toolkit namespace",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "object_id": {
+          "desc": "Built-in stable object_id",
+          "examples": [],
+          "pk": true,
+          "required": true,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "serving": {
+          "default": {},
+          "desc": "Serving metadata",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "status": {
+          "default": "active",
+          "desc": "Toolkit status",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "updated_at": {
+          "default": 0.0,
+          "desc": "Last update timestamp",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "float"
+          }
+        },
+        "version": {
+          "default": "1",
+          "desc": "Explicit toolkit version",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        }
+      },
+      "name": "Toolkit",
+      "tags": []
+    },
+    {
+      "desc": "Translation row entity and prompt-bound helper. ``Translation`` stores source-to-target text rows as ``sys-translation`` entities. When created by ``Prompt``, the same object is exposed as ``prompt.tr`` for lookup, mutation, and translation dictionary binding. Warnings: Translated template rows are later formatted with runtime values. Treat shared translation workspaces as trusted prompt data and avoid loading translations from unreviewed sources. Examples: >>> prompt = Prompt(\"Hello, {name}\", name=\"demo.hello\") >>> prompt.tr.set(\"Hello, {name}\", \"zz\", \"HEY, {name}\") '...' >>> prompt(name=\"Ada\", lang=\"zz\") 'HEY, Ada'",
+      "entity_id": "sys-translation",
+      "fields": {
+        "created_at": {
+          "default": 0.0,
+          "desc": "Creation timestamp",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "float"
+          }
+        },
+        "dict_name": {
+          "desc": "Dotted translation dictionary name",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "lang": {
+          "desc": "Target language",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "object_id": {
+          "desc": "Built-in stable object_id",
+          "examples": [],
+          "pk": true,
+          "required": true,
+          "tags": [],
+          "type": {
+            "max_chars": 63,
+            "type": "identifier"
+          }
+        },
+        "pattern": {
+          "default": {},
+          "desc": "Parsed placeholder pattern metadata",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "json"
+          }
+        },
+        "source_key": {
+          "desc": "Source text or template key",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "status": {
+          "default": "active",
+          "desc": "Translation status",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 255,
+            "type": "short-text"
+          }
+        },
+        "target_value": {
+          "desc": "Translated text",
+          "examples": [],
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "max_chars": 65535,
+            "type": "long-text"
+          }
+        },
+        "updated_at": {
+          "default": 0.0,
+          "desc": "Last update timestamp",
+          "examples": [],
+          "has_default": true,
+          "pk": false,
+          "required": false,
+          "tags": [],
+          "type": {
+            "type": "float"
+          }
+        }
+      },
+      "name": "Translation",
+      "tags": []
+    }
+  ],
+  "extensions": [
+    "toolkit",
+    "prompt",
+    "agent",
+    "memory"
+  ],
+  "id": "portable-manifest-0122",
+  "kind": "heavenbase.workspace.manifest",
+  "version": 2
+}

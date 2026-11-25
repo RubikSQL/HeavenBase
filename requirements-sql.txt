@@ -1,0 +1,8 @@
+# Source of truth for sql optional dependencies. Edit here, then run bash scripts/sync-env.bash.
+sqlalchemy>=2.0
+psycopg2-binary>=2.9
+pymysql>=1.1
+pymssql>=2.3
+oracledb>=2.0
+trino[sqlalchemy]>=0.330
+clickhouse-connect>=1.0,<2

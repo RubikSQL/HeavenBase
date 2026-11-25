@@ -1,0 +1,30 @@
+{
+  "name": "@heavenbase/gui",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.3.14",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "format": "biome format --write ui/src tests host scripts",
+    "format:check": "biome format ui/src tests host scripts",
+    "vendor:sync": "node scripts/sync-vendor.mjs",
+    "vendor:check": "node scripts/sync-vendor.mjs --check",
+    "generate:api": "openapi-typescript ../../docs/resources/reference/dashboard-openapi.json -o ui/src/generated/schema.d.ts --immutable --alphabetize --default-non-nullable false",
+    "generate:api:check": "bun run generate:api --check",
+    "lint": "biome lint ui/src tests scripts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "bun test tests",
+    "check": "bun run vendor:check && bun run generate:api:check && bun run format:check && bun run lint && bun run typecheck && bun run test && bun run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.6",
+    "@types/bun": "1.3.14",
+    "codemirror": "5.65.16",
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.9.3"
+  },
+  "trustedDependencies": []
+}

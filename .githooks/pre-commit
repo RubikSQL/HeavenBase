@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "${ROOT}"
+source "${ROOT}/scripts/_env.bash"
+export HEAVENBASE_PYTHON_PREFERENCE=uv-first
+
+bash scripts/sync-env.bash
+git add README.md src/heavenbase/resources/README.md pyproject.toml environment*.yml uv.lock poetry.lock
+
+run_python scripts/docs.py check
+run_python scripts/gen_capabilities.py --check
+bash scripts/flake.bash --all
+
+if ! git diff --quiet -- src scripts tests demos templates; then
+    echo "error: metadata sync or formatting changed files. Review and re-stage them, then commit again." >&2
+    exit 1
+fi

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HeavenBase</title>
+<link rel="stylesheet" href="/codemirror.css">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" type="image/x-icon" href="/assets/heavenbase-logo-concentric-wide-light-squircle.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/heavenbase-logo-concentric-wide-light-64.png">
+<link rel="apple-touch-icon" href="/assets/heavenbase-logo-concentric-wide-light-128.png">
+</head>
+<body class="theme-light">
+<script>
+// Pre-paint theme restore: avoids a white flash for dark/warm users before app.js boots.
+(function () {
+  var stored = localStorage.getItem("hb-theme");
+  if (stored === "theme-dark" || stored === "theme-anthropic") document.body.className = stored;
+  if (stored === "theme-dark") {
+    var tone = "dark";
+    document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]').forEach(function (link) {
+      if (link.type === "image/x-icon" || (link.href && link.href.indexOf(".ico") !== -1)) {
+        link.href = "/assets/heavenbase-logo-concentric-wide-" + tone + "-squircle.ico";
+      } else if (link.rel === "apple-touch-icon") {
+        link.href = "/assets/heavenbase-logo-concentric-wide-" + tone + "-128.png";
+      } else {
+        link.href = "/assets/heavenbase-logo-concentric-wide-" + tone + "-64.png";
+      }
+    });
+  }
+})();
+</script>
+<div id="app" class="shell">
+  <nav class="rail" id="rail"></nav>
+  <aside class="browser" id="browser"></aside>
+  <div class="gutter" id="gutter" role="separator" aria-orientation="vertical" aria-label="Resize browser panel"></div>
+  <main class="workspace" id="workspace"></main>
+  <aside class="inspector" id="inspector" hidden></aside>
+  <footer class="status" id="status"></footer>
+</div>
+<!-- Boot gate: visible from first paint (before app.js) so the shell is never
+     interactive while the workspace loads; ui.js setBusy() lifts it. -->
+<div id="boot" class="boot-overlay" role="status" aria-label="Loading">
+  <div class="boot-card">
+    <div class="boot-logo" aria-hidden="true"></div>
+    <div class="boot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+</div>
+<div id="overlay"></div>
+<script src="/js/codemirror.js"></script>
+<script src="/js/codemirror-json.js"></script>
+<script src="/js/codemirror-matchbrackets.js"></script>
+<script src="/js/codemirror-closebrackets.js"></script>
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

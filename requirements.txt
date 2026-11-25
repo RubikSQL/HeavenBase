@@ -1,0 +1,15 @@
+# Source of truth for runtime dependencies. Edit here, then run bash scripts/sync-env.bash.
+pyyaml>=6.0
+omegaconf>=2.3
+cloudpickle>=3.0
+fastmcp>=4.0.0b1
+openai>=1.0
+anthropic>=0.105
+sqlalchemy>=2.0
+typer>=0.12
+click>=8.1
+pydantic>=2.12
+starlette>=0.40
+uvicorn>=0.30
+prompt_toolkit>=3.0
+pandas>=1.5

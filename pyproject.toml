@@ -1,0 +1,70 @@
+[project]
+name = "heavenbase"
+dynamic = ["version", "dependencies", "optional-dependencies"]
+authors = [{ name = "Magolor" }]
+description = "HeavenBase: an agent-native polyglot engine for structured data management. Your data, speakable by agents."
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10,<3.14"
+keywords = ["semantic-layer", "entity", "vector-db", "agents", "heavenbase", "hvnb"]
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://ahvn.top/"
+Documentation = "https://ahvn.top/"
+Repository = "https://github.com/Magolor/HeavenBase-legacy"
+"Bug Tracker" = "https://github.com/Magolor/HeavenBase-legacy/issues"
+
+[project.scripts]
+hb = "heavenbase.cli.app:main"
+
+[build-system]
+requires = ["setuptools>=77.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+heavenbase = ["py.typed", "**/meta.yaml", "**/README.md", "resources/**/*.yaml", "resources/**/*.yml", "resources/**/*.json", "database/resources/**/*.sql"]
+
+[tool.setuptools.data-files]
+"share/heavenbase/gui/ui" = ["apps/gui/ui/index.html", "apps/gui/ui/styles.css", "apps/gui/ui/codemirror.css"]
+"share/heavenbase/gui/ui/assets" = ["apps/gui/ui/assets/*"]
+"share/heavenbase/gui/ui/js" = ["apps/gui/ui/js/*.js"]
+"share/heavenbase/gui/host" = ["apps/gui/host/*.js", "apps/gui/host/*.icns"]
+"share/heavenbase/openapi" = ["docs/resources/reference/dashboard-openapi.json"]
+
+[tool.setuptools.dynamic]
+version = { attr = "heavenbase.version.__version__" }
+dependencies = { file = ["requirements.txt"] }
+optional-dependencies.dev = { file = ["requirements-dev.txt"] }
+optional-dependencies.interop = { file = ["requirements-interop.txt"] }
+optional-dependencies.daft = { file = ["requirements-daft.txt"] }
+optional-dependencies.sql = { file = ["requirements-sql.txt"] }
+optional-dependencies.full = { file = ["requirements-full.txt"] }
+
+# [tool.poetry].version is synced from src/heavenbase/version.py by scripts/sync-env.py.
+[tool.poetry]
+version = "0.1.2.3"
+package-mode = true
+
+[tool.uv]
+# FastMCP 4 prereleases require uv to opt the transitive slim package into the
+# same release line explicitly.
+constraint-dependencies = ["fastmcp-slim>=4.0.0b1"]
+# Dependencies and the version are read from these files, so a change to any of
+# them must rebuild the project metadata that uv lock and uv sync compare.
+cache-keys = [{ file = "pyproject.toml" }, { file = "requirements*.txt" }, { file = "src/heavenbase/version.py" }]
+
+[tool.black]
+line-length = 160
+target-version = ["py310"]

@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
+    "rootDir": "ui/src",
+    "outDir": "ui/js"
+  },
+  "include": ["ui/src/**/*.ts"],
+  "exclude": ["tests"]
+}
